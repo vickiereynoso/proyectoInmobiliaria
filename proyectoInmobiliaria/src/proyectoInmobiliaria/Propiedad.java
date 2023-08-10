@@ -6,7 +6,7 @@ public class Propiedad {
 	private int cantAmbientes;
 	private Zona zona;
 	private double precio;
-	private boolean enAlquiler;
+	private boolean enAlquiler = false;
 	
 	public Propiedad(String direccion, int cantAmbientes, Zona zona, double precio, boolean enAlquiler) {
 		super();
