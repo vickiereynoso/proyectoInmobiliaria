@@ -90,8 +90,8 @@ public class Inmobiliaria {
 					cantOcupZona++;
 				}
 			}
-			System.out.println(cantpropZona);
-			System.out.println(cantOcupZona);
+			//System.out.println(cantpropZona);
+			//System.out.println(cantOcupZona);
 			System.out.println("El porcentaje de ocupación en la zona "+ Zona.values()[i]+" es de "+ ((cantOcupZona*100)/cantpropZona)+"%.");
 
 		}
