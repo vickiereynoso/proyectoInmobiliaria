@@ -60,7 +60,7 @@ public class Propiedad {
 	@Override
 	public String toString() {
 		return "Propiedad [direccion=" + direccion + ", cantAmbientes=" + cantAmbientes + ", zona=" + zona + ", precio="
-				+ precio + ", enAlquiler=" + enAlquiler + "]";
+				+ precio + ", enAlquiler=" + enAlquiler + "]"+"\n";
 	}
 	
 	
