@@ -41,22 +41,48 @@ public class Inmobiliaria {
 		}else{
 			System.out.println("Propiedad ya alquilada.");
 			System.out.println("Te mostramos otras propiedades libres para la cantidad de ambientes y zona deseada: "+"\n");
-			mostrarPropiedadesLibresSegunCantAmbYZona(buscarPropiedad(direccion).getCantAmbientes(), buscarPropiedad(direccion).getZona());
+			System.out.println(mostrarPropiedadesLibresSegunCantAmbYZona(buscarPropiedad(direccion).getCantAmbientes(), buscarPropiedad(direccion).getZona()));
 		}
 	}
 	
 	
-	public void mostrarPropiedadesLibresSegunCantAmbYZona(int cantAmbientes, Zona zona) {
+	public ArrayList mostrarPropiedadesLibresSegunCantAmbYZona(int cantAmbientes, Zona zona) {
+		ArrayList<Propiedad>propiedadesLibres = new ArrayList<>();
 		int i = 0;
 		while(i<this.propiedades.size()) {
 			if(this.propiedades.get(i).getCantAmbientes()== cantAmbientes && this.propiedades.get(i).getZona() == zona && this.propiedades.get(i).isEnAlquiler()==false) {
-				System.out.println(this.propiedades.get(i));
+				propiedadesLibres.add(this.propiedades.get(i));
 			}else {
 				i++;
 			}
 		}
+		return propiedadesLibres;
 	}
 	
+	public ArrayList mostrarPropiedadesLibres() {
+		ArrayList<Propiedad>propiedadesLibres = new ArrayList<>();
+		for(Propiedad p : this.propiedades) {
+			if(p.isEnAlquiler()==false) {
+				propiedadesLibres.add(p);
+			}
+		} 
+		return propiedadesLibres;
+	}
+	
+	public void mostrarPorcentajeOcupación() {
+		int cantOcupZona=0;
+		int cantpropZona=0;
+		for(int i=0; i<Zona.values().length; i++) {
+			for(int j=0; j<this.propiedades.size(); j++) {
+				if(this.propiedades.get(i).isEnAlquiler()== true) {
+					cantOcupZona++;
+				}if(this.propiedades.get(i).getZona() == Zona.values()[i] ) {
+					cantpropZona++;
+				}
+			}
+			System.out.println("El porcentaje de ocupación en la zona "+ Zona.values()+" es de "+ ((cantOcupZona*100)/cantpropZona)+"%.");
+		}
+	}
 	
 	
 	
