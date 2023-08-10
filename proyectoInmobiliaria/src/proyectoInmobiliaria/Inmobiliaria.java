@@ -11,7 +11,11 @@ public class Inmobiliaria {
 	}
 	
 	public void ingresarPropiedad(Propiedad propiedad) {
-		
+		if(buscarPropiedad(propiedad)== null) {
+			this.propiedades.add(propiedad);
+		}else if(buscarPropiedad(propiedad)== null) {
+			System.out.println("Error. La propiedad ya se encuentra registrada.");
+		}
 		
 	}
 	
